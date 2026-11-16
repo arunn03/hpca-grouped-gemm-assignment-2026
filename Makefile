@@ -7,10 +7,10 @@ ARCHFLAGS :=
 ifneq ($(strip $(ARCH)),)
 ARCHFLAGS := -gencode arch=compute_$(ARCH),code=sm_$(ARCH)
 endif
-NVCCFLAGS := -std=c++17 -lineinfo -O3 -Iinclude $(ARCHFLAGS)
-CXXFLAGS := -std=c++17 -O2 -Wall -Wextra -Iinclude
+NVCCFLAGS := -std=c++11 -lineinfo -O3 -Iinclude $(ARCHFLAGS)
+CXXFLAGS := -std=c++11 -O2 -Wall -Wextra -Iinclude
 ifeq ($(DEBUG),1)
-NVCCFLAGS := -std=c++17 -O0 -g -G -Iinclude $(ARCHFLAGS)
+NVCCFLAGS := -std=c++11 -O0 -g -G -Iinclude $(ARCHFLAGS)
 endif
 
 SRCS := src/main.cu src/baseline.cu src/grouped_gemm_kernels.cu \
